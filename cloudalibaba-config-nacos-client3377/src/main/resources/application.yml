@@ -1,0 +1,5 @@
+# application.yml 优先级低于bootstrap.yml
+spring:
+  profiles:
+    active: dev # 开发环境
+
