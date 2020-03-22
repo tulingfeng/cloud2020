@@ -15,7 +15,7 @@
         <!-- 这个插件给生成的Java模型对象增加了equals和hashCode方法 -->
         <!--<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>-->
 <!--        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">-->
-<!--            &lt;!&ndash;dao 要继承的接口&ndash;&gt;-->
+<!--            &lt;!&ndash;org.tlf.springcloud.dao 要继承的接口&ndash;&gt;-->
 <!--            <property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>-->
 <!--            &lt;!&ndash;是否区分大小写，默认false&ndash;&gt;-->
 <!--            <property name="caseSensitive" value="true"/>-->
@@ -74,7 +74,7 @@
         </sqlMapGenerator>
 
         <!-- 生成 XxxMapper.java 接口-->
-        <javaClientGenerator targetPackage="org.tlf.springcloud.dao" targetProject="src/main/java" type="XMLMAPPER">
+        <javaClientGenerator targetPackage="org.tlf.springcloud.org.tlf.springcloud.dao" targetProject="src/main/java" type="XMLMAPPER">
             <!--<property name="enableSubPackages" value="false"/>-->
         </javaClientGenerator>
 

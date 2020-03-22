@@ -15,7 +15,7 @@ public class OrderNacosController {
     @Resource
     private RestTemplate restTemplate;
 
-    @Value("${service-url.nacos-user-service}")
+    @Value("${org.tlf.springcloud.service-url.nacos-user-org.tlf.springcloud.service}")
     private String serverUrl;
 
     @GetMapping("/consumer/payment/nacos/{id}")

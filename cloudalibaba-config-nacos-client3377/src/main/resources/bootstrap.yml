@@ -2,7 +2,7 @@ server:
   port: 3377
 spring:
   application:
-    name: nacos-config-client
+    name: nacos-org.tlf.springcloud.config-client
   cloud:
     nacos:
       discovery:
@@ -11,4 +11,4 @@ spring:
         server-addr: localhost:8848 # 配置中心
         file-extension: yml # 这里指定的文件格式需要和nacos上新建的配置文件后缀相同，否则读不到
 
-# 对应nacos中的配置文件名：nacos-config-client-dev.yml
+# 对应nacos中的配置文件名：nacos-org.tlf.springcloud.config-client-dev.yml

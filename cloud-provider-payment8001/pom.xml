@@ -79,7 +79,7 @@
                 <version>1.3.7</version>
                 <configuration>
                     <!--mybatis的代码生成器的配置文件-->
-                    <configurationFile>src/main/resources/mybatis-generator-config.xml</configurationFile>
+                    <configurationFile>src/main/resources/mybatis-generator-org.tlf.springcloud.config.xml</configurationFile>
                     <!--允许覆盖生成的文件-->
                     <overwrite>true</overwrite>
                     <!--将当前pom的依赖项添加到生成器的类路径中-->

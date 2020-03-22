@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RefreshScope // nocas动态刷新
 public class ConfigClientController {
-    @Value("${config.info}")
+    @Value("${org.tlf.springcloud.config.info}")
     private String configInfo;
 
     @GetMapping("/config/info")

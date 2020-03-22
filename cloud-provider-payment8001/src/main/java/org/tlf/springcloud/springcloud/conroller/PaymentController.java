@@ -5,9 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.web.bind.annotation.*;
-import org.tlf.springcloud.springcloud.entities.Payment;
+import org.tlf.springcloud.entities.Payment;
 import org.tlf.springcloud.springcloud.service.PaymentService;
-import org.tlf.springcloud.springcloud.entities.CommonResult;
+import org.tlf.springcloud.entities.CommonResult;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 
 import javax.annotation.Resource;

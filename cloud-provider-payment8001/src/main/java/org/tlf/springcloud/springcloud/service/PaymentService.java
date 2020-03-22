@@ -3,8 +3,8 @@ package org.tlf.springcloud.springcloud.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.tlf.springcloud.springcloud.dao.PaymentMapper;
-import org.tlf.springcloud.springcloud.entities.Payment;
+import org.tlf.springcloud.dao.PaymentMapper;
+import org.tlf.springcloud.entities.Payment;
 
 
 @Service

@@ -7,7 +7,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 
-@MapperScan("org.tlf.springcloud.dao")
+@MapperScan("org.tlf.springcloud.org.tlf.springcloud.dao")
 @SpringBootApplication
 @EnableEurekaClient
 @EnableDiscoveryClient

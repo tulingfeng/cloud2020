@@ -4,8 +4,8 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.tlf.springcloud.springcloud.entities.CommonResult;
-import org.tlf.springcloud.springcloud.entities.Payment;
+import org.tlf.springcloud.entities.CommonResult;
+import org.tlf.springcloud.entities.Payment;
 
 @Component
 @FeignClient(value = "CLOUD-PROVIDER-SERVICES")
