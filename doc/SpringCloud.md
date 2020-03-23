@@ -22,9 +22,9 @@
 
   Bus，Nacos(推荐)
 
-* 7.事务
+* 7.事务 
 
-​     Seata
+   Seata
 
 
 
@@ -43,13 +43,13 @@ Eureka采用的是CS的设计架构，分为两部分：
 
 ![](./pics/eureka_flow.jpg)
 
-Eureka 的设计原则是 AP，即可用性和分区容错性。他保证了注册中心的可用性，但舍弃了数据一致性，**各节点上的数据有可能是不一致的（会最终一致）**
+Eureka 的设计原则是 AP，即可用性和分区容错性。他保证了注册中心的可用性，但舍弃了数据一致性，**各节点上的数据有可能是不一致的（会最终一致）**。
 
 [实现原理](<https://www.infoq.cn/article/jlDJQ*3wtN2PcqTDyokh>)
 
 [wiki](<https://github.com/Netflix/eureka/wiki>)
 
-与`Spring Cloud`整合，[具体配置]()
+与`Spring Cloud`整合，[eureka](<https://github.com/tulingfeng/cloud2020/blob/master/doc/eureka_deploy.md>)
 
 
 
@@ -57,7 +57,7 @@ Eureka 的设计原则是 AP，即可用性和分区容错性。他保证了注�
 
 `Zookeeper`是一个分布式协调工具，可以实现注册中心功能。**临时节点**。
 
-具体配置参见：
+具体配置参见：[zookeeper](<https://github.com/tulingfeng/cloud2020/blob/master/doc/zookeeper_deploy.md>)
 
 
 
@@ -77,7 +77,7 @@ Consul is a service mesh solution providing a full featured control plane with s
 * 4.多数据中心
 * 5.可视化界面
 
-具体配置参考：
+具体配置参考：[consul](<https://github.com/tulingfeng/cloud2020/blob/master/doc/consul.md>)
 
 
 
@@ -338,7 +338,7 @@ sentinel是懒加载，只有数据进去dashboard才会展示。
 秒杀系统让流量预热，慢慢增加到设置的阈值
 
 sentinel中设置：
-![](/Users/tulingfeng/IdeaProjects/cloud2020/doc/pics/warmup.jpg) 
+![](./pics/warmup.jpg) 
 
 默认coldFactor为3，即请求QPS从(threshold/3)开始，经多少预热时长才逐渐升至设定的QPS阈值。
 例如：
@@ -347,7 +347,7 @@ sentinel中设置：
 
 2.排队
 匀速排队：严格控制请求通过的间隔时间，也即是让请求以均匀的速度通过，对应的是漏桶算法。
-![](/Users/tulingfeng/IdeaProjects/cloud2020/doc/pics/rate_limit.jpg)
+![](./pics/rate_limit.jpg)
 
 这种方式主要用于处理间隔性突发的流量，例如消息队列。例如某一秒有大量的请求到来，
 而接下来的几秒则处于空闲状态，我们希望系统能够在接下来的空闲时间逐渐处理这些请求而不是在第一秒直接拒绝多余的请求。
@@ -362,7 +362,8 @@ sentinel中设置：
 
 Sentinel 利用 LRU 策略统计最近最常访问的热点参数，结合令牌桶算法来进行参数级别的流控。热点参数限流支持集群模式。
 
-请求：http://localhost:8401/testHotKey?p1=a
+请求：`http://localhost:8401/testHotKey?p1=a`
+
 代码：
 
 ```java
@@ -379,7 +380,7 @@ Sentinel 利用 LRU 策略统计最近最常访问的热点参数，结合令牌
     }
 ```
 
-![](/Users/tulingfeng/IdeaProjects/cloud2020/doc/pics/hotkey.jpg)
+![](./pics/hotkey.jpg)
 这样访问QPS为1，会有些请求访问dealTestHotKey方法。
 
 
@@ -391,20 +392,20 @@ Sentinel 利用 LRU 策略统计最近最常访问的热点参数，结合令牌
 ```json
 [
     {
-        "resource":"/rateLimit/byUrl", // 资源名称
-        "limitApp":"default", // 来源应用
-        "grade":1, // 阈值类型，0表示线程数，1表示QPS
-        "count":1, // 单机阈值
-        "strategy":0, // 流控模式，0表示直接，1表示关联，2表示链路
-        "controlBehavior":0, // 流控效果，0表示快速失败，1表示warmup，2表示排队等待
-        "clusterMode":false // 是否集群
+        "resource":"/rateLimit/byUrl", # 资源名称
+        "limitApp":"default", # 来源应用
+        "grade":1, # 阈值类型，0表示线程数，1表示QPS
+        "count":1, # 单机阈值
+        "strategy":0, # 流控模式，0表示直接，1表示关联，2表示链路
+        "controlBehavior":0, # 流控效果，0表示快速失败，1表示warmup，2表示排队等待
+        "clusterMode":false # 是否集群
     }
 ]
 ```
 
 
 
-具体配置参考：
+具体配置参考：[sentinel](<https://github.com/tulingfeng/cloud2020/blob/master/doc/sentinel_deploy.md>)
 
 
 
@@ -424,13 +425,9 @@ Zuul包含了对请求的**路由**和**过滤**两个最主要的功能：
 
 其中路由功能负责将外部请求转发到具体的微服务实例上，是实现外部访问统一入口的基础而过滤器功能则负责对请求的处理过程进行干预，是实现请求校验、服务聚合等功能的基础.Zuul和Eureka进行整合，将Zuul自身注册为Eureka服务治理下的应用，同时从Eureka中获得其他微服务的消息，也即以后的访问微服务都是通过Zuul跳转后获得。 
 
-
-
 **Zuul服务需要注册进Eureka**
 
-
-
-具体配置参考：
+具体配置参考：[zuul](<https://github.com/tulingfeng/cloud2020/blob/master/doc/zuul_deploy.md>)
 
 
 
@@ -470,7 +467,7 @@ Spring Cloud Gateway使用的是Webflux中的reactor-netty响应式编程组件�
 
 **微服务架构中网关的位置**
 
-![](/Users/tulingfeng/IdeaProjects/cloud2020/doc/pics/gateway.jpg)
+![](./pics/gateway.jpg)
 
 
 
@@ -548,7 +545,7 @@ servlet是一个简单的网络IO模型，当请求进入servlet container时，
 
 
 
-具体配置参见：
+具体配置参见：[gateway](<https://github.com/tulingfeng/cloud2020/blob/master/doc/gateway_deploy.md>)
 
 
 
@@ -586,7 +583,7 @@ CP模式下则支持注册持久化实例，此时则是以Raft协议为集群�
 
 ![](./pics/nacos_compare.jpg)
 
-具体配置参见：
+具体配置参见：[nacos](<https://github.com/tulingfeng/cloud2020/blob/master/doc/nacos_deploy.md>)
 
 
 
@@ -632,13 +629,14 @@ Source和Sink：简单的可以理解为参照对象是SpringCloud Stream自身�
 
 
 
-具体配置参见：
+具体配置参见：[stream](<https://github.com/tulingfeng/cloud2020/blob/master/doc/Stream.md>)
 
 
 
 ## 7.分布式事务
 
 ### 7.1 Seata
+
 [分布式事务](https://juejin.im/post/5b5a0bf9f265da0f6523913b)
 
 **Seata 要点：**
@@ -688,4 +686,4 @@ Resource Manager 资源管理器：管理分支事务处理的资源，与TC交�
 
 部署成功`Seata`后，只需要添加`@GlobalTranstional`注解即可。
 
-具体配置参见：
+具体配置参见：[seata](<https://github.com/tulingfeng/cloud2020/blob/master/doc/seata.md>)
