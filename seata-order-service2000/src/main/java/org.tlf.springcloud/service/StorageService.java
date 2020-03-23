@@ -1,11 +1,17 @@
 package org.tlf.springcloud.service;
 
+import org.tlf.springcloud.domain.CommonResult;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.tlf.springcloud.entities.CommonResult;
 
-@FeignClient(value = "seata-storage-org.tlf.springcloud.service")
+/**
+ * 库存服务
+ *
+ * @author zzyy
+ * @date 2020/3/8 13:56
+ **/
+@FeignClient(value = "seata-storage-service")
 public interface StorageService {
     /**
      * 减库存

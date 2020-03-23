@@ -1,9 +1,14 @@
-package org.tlf.springcloud.domian;
+package org.tlf.springcloud.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * 库存实体类
+ * @author zzyy
+ * @date 2020/3/8 15:36
+ **/
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

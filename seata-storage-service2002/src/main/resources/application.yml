@@ -3,7 +3,7 @@ erver:
 
 spring:
   application:
-    name: seata-storage-org.tlf.springcloud.service
+    name: seata-storage-service
   cloud:
     alibaba:
       seata:
@@ -13,8 +13,10 @@ spring:
       discovery:
         server-addr: 127.0.0.1:8848
   datasource:
+    # 当前数据源操作类型
+    type: com.alibaba.druid.pool.DruidDataSource
     # mysql驱动类
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/seata_storage?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
     username: root
     password: 12345678

@@ -3,11 +3,15 @@ package org.tlf.springcloud.service;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.tlf.springcloud.entities.CommonResult;
+import org.tlf.springcloud.domain.CommonResult;
 
 import java.math.BigDecimal;
 
-@FeignClient(value = "seata-account-org.tlf.springcloud.service")
+/**
+ * @author zzyy
+ * @date 2020/3/8 13:55
+ **/
+@FeignClient(value = "seata-account-service")
 public interface AccountService {
     /**
      * 减余额

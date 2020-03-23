@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: seata-account-org.tlf.springcloud.service
+    name: seata-account-service
   cloud:
     alibaba:
       seata:
