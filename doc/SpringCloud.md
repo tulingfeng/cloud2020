@@ -26,8 +26,6 @@
 
    Seata
 
-
-
 ## 1.服务注册中心
 
 ### 1.1 Eureka
@@ -49,7 +47,7 @@ Eureka 的设计原则是 AP，即可用性和分区容错性。他保证了注�
 
 [wiki](<https://github.com/Netflix/eureka/wiki>)
 
-与`Spring Cloud`整合，[eureka](<https://github.com/tulingfeng/cloud2020/blob/master/doc/eureka_deploy.md>)
+具体配置参见：[eureka](<https://github.com/tulingfeng/cloud2020/blob/master/doc/eureka_deploy.md>)
 
 
 
@@ -160,7 +158,7 @@ List<Serviceinstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SE
 
 
 
-## 2.2 OpenFeign
+### 2.2 OpenFeign
 
 Feign是一个声明式的Web服务客户端，只需创建一个接口并在接口上添加注解即可。
 
@@ -417,8 +415,6 @@ Sentinel 利用 LRU 策略统计最近最常访问的热点参数，结合令牌
 
 ## 4.服务网关
 
-
-
 ###  4.1 Zuul
 
 Zuul包含了对请求的**路由**和**过滤**两个最主要的功能： 
@@ -542,8 +538,6 @@ servlet是一个简单的网络IO模型，当请求进入servlet container时，
 **核心逻辑**
 
 路由转发+执行过滤器链。
-
-
 
 具体配置参见：[gateway](<https://github.com/tulingfeng/cloud2020/blob/master/doc/gateway_deploy.md>)
 
