@@ -129,13 +129,11 @@ Zookeeper/Consul: CP
 
 **Ribbon本地负载均衡客户端和Ngnix服务端负载均衡区别：**
 
-Nginx 是服务器负载均衡，客户端所有请求都会交给 nginx ，然后由 nginx 实现转发请求。即负载均衡是由服务端实现的。
+* Nginx 是服务器负载均衡，客户端所有请求都会交给 nginx ，然后由 nginx 实现转发请求。即负载均衡是由服务端实现的。
 
-Ribbon 本地负载均衡，在调用微服务接口时候，会在注册中心上获取注册信息服务列表之后缓存到JVM本地，从而在本地实现 RPC 远程服务调用技术。
+* Ribbon 本地负载均衡，在调用微服务接口时候，会在注册中心上获取注册信息服务列表之后缓存到JVM本地，从而在本地实现 RPC 远程服务调用技术。
 
-Ribbon 就是负载均衡+RestTemplate调用 最终实现RPC的远程调用。
-
-
+**Ribbon 就是负载均衡+RestTemplate调用 最终实现RPC的远程调用。**
 
 `EurekaClient`底层用的也是`netfix-ribbon`的jar包。
 
@@ -165,13 +163,13 @@ List<Serviceinstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SE
 
 Feign是一个声明式的Web服务客户端，只需创建一个接口并在接口上添加注解即可。
 
-具体配置参考：
+具体配置参考：[openfeign](<https://github.com/tulingfeng/cloud2020/blob/master/doc/openfeign_deploy.md>)
 
 
 
 **Feign自带负载均衡项**
 
-注意`OpenFeign`默认等地啊1秒钟，超过后报错。因此可以在客户端进行超时配置：
+注意`OpenFeign`默认等待1秒钟，超过后报错。因此可以在客户端进行超时配置：
 
 ```xml
 ribbon:   
