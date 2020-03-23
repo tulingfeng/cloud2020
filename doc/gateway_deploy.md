@@ -1,3 +1,18 @@
+## Gateway部署方案
+
+1.`pom.xml`中增加：
+
+```xml
+<!--gateway-->
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-gateway</artifactId>
+</dependency>
+```
+
+2.`application.xml`配置如下：
+
+```xml
 server:
   port: 9527
 
@@ -6,7 +21,7 @@ spring:
     name: cloud-gateway
 
   cloud:
-    gateway:
+    gateway:  # gateway配置
       discovery:
         locator:
           enabled: true   #开启从注册中心动态创建路由的功能，利用微服务名进行路由
@@ -29,3 +44,19 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://eureka7002.com:7002/eureka
+```
+
+
+
+3.主启动类
+
+```java
+@SpringBootApplication
+@EnableEurekaClient  // 还是要配置Eureka客户端注解
+public class GatewayMain9527 {
+    public static void main(String[] args) {
+        SpringApplication.run(GatewayMain9527.class,args);
+    }
+}
+```
+

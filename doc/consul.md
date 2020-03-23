@@ -1,28 +1,50 @@
-## Consul简介
+## Consul部署方案
 
-Consul是一套开源的分布式服务发现和配置管理系统，由HashiCorp公司用Go语言开发。
-
-提供了微服务系统中的服务治理、配置中心、控制总线等功能。这些功能中的每一个都可以根据需要单独使用，也可以一起使用以构建全方位的服务网络，总之Consul提供了一种完整的服务网格解决方案。
-
-
-## Consul功能
-
-* 服务发现：提供 HTTP 和 DNS 两种发现方式
-* 健康监测：支持多种方式，HTTP、TCP、Docker、Shell脚本定制化
-* KV存储：Key、Value的存储方式
-* 多数据中心：Consul支持多数据中心
-* 可视化界面
-
-
-## Consul使用
+### 1.客户端
 
 ```text
 consul agent -dev
-
 监听8500端口
 ```
 
-## Eureka、Zookeeper、Consul的异同点
+### 2.服务提供者
+
+jar包
+
+```xml
+ <!--SpringCloud consul-server-->         
+<dependency>             
+    <groupId>org.springframework.cloud</groupId>           
+    <artifactId>spring-cloud-starter-consul-discovery</artifactId>       
+</dependency>
+```
+
+`application.xml`
+
+```yml
+server :   
+  # consul 服务端口   
+  port :  8006
+spring :  
+  application :    
+    name : cloud-provider-payment   
+cloud :     
+  consul :    
+  # consul 注册中心地址    
+    host : localhost       
+    port :  8500       
+    discovery :          
+      hostname : 127.0.0.1
+      service-name: ${spring.application.name}
+```
+
+主启动类加`@EnableDiscoveryClient`注解
+
+
+
+### 3.服务消费者
+
+jar包、`application.yml`配置及主启动类配置同前。
 
 ```text
 1.Eureka: AP

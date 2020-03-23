@@ -2,7 +2,7 @@ server:
   port: 8401
 spring:
   application:
-    name: cloudalibaba-sentinel-org.tlf.springcloud.service
+    name: cloudalibaba-sentinel-service
   cloud:
     nacos:
       discovery:
