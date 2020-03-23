@@ -500,7 +500,7 @@ container 启动时构造 servlet 对象并调用 servlet init() 进行初始化
 container 运行时接受请求，并为每个请求分配一个线程（一般从线程池中获取空闲线程）然后调用service()；
 container 关闭时调用 servlet destory() 销毁servlet。
 
-![](/Users/tulingfeng/IdeaProjects/cloud2020/doc/pics/servlet.png)
+![](./pics/servlet.png)
 
 **缺点**
 
@@ -525,7 +525,7 @@ servlet是一个简单的网络IO模型，当请求进入servlet container时，
 
 **工作流程**
 
-![](/Users/tulingfeng/IdeaProjects/cloud2020/doc/pics/gateway_workflow.jpg)
+![](./pics/gateway_workflow.jpg)
 
 ```text
 1.客户端向Spring Cloud Gateway发出请求。然后在Gateway Handler Mapping中找到与请求相匹配的路由，将其发送到Gateway Web Handler。
@@ -559,7 +559,7 @@ servlet是一个简单的网络IO模型，当请求进入servlet container时，
 **Nacos既支持AP，也支持CP。**
 C是所有节点在同一时间看到的数据是一致的；而A的定义是所有的请求都会收到响应。
 
-![](/Users/tulingfeng/IdeaProjects/cloud2020/doc/pics/nacos.jpg)
+![](./pics/nacos.jpg)
 
 **何时选择使用何种模式？**
 
@@ -644,7 +644,7 @@ Transaction Manager 事务管理器:定义全局事务的范围：开始全局�
 Resource Manager 资源管理器：管理分支事务处理的资源，与TC交谈以注册分支事务和报告分支事务的状态，并驱动分支事务提交或回滚。
 ```
 
-![](/Users/tulingfeng/IdeaProjects/cloud2020/doc/pics/seata_flow.jpg)
+![](./pics/seata_flow.jpg)
 
 **执行流程**
 
@@ -660,14 +660,14 @@ Resource Manager 资源管理器：管理分支事务处理的资源，与TC交�
 
 1.一阶段加载
 
-![](/Users/tulingfeng/IdeaProjects/cloud2020/doc/pics/seata_AT1.jpg)
+![](./pics/seata_AT1.jpg)
 
 - 1.解析SQL语义，找到"业务SQL"要更新的数据源，在其业务数据更新之前，将其保存成"before image"；
 - 2.执行"业务SQL"，更新业务数据；
 - 3.在业务更新之后将其保存成"after image"，最后生成行锁。
 
 2.二阶段提交
-![](/Users/tulingfeng/IdeaProjects/cloud2020/doc/pics/seata_AT2_commit.jpg)
+![](./pics/seata_AT2_commit.jpg)
 
 如果二阶段是顺利提交的话，由于一阶段业务SQL已经更新了数据库，所以只需要将一阶段保存的快照数据和行锁删掉即可，完成数据清理即可。
 
