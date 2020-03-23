@@ -1,13 +1,16 @@
 ## 0.spring cloud 使用的基础架构
 
 * 1.服务注册中心
+
   Eureka，Zookeeper，Consul，Nacos(推荐)
 
 * 2.服务调用
+
   Ribbon，LoadBalancer
   Feign，OpenFeign(推荐)
 
 * 3.服务降级
+
   Hystrix，resilience4j(国外使用多)，Sentinel(国内使用多)
 
 * 4.服务网关
